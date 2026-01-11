@@ -44,7 +44,7 @@ COPY --from=build /app/pnpm-lock.yaml ./
 RUN pnpm install --prod --frozen-lockfile
 
 # Expose the port the app runs on
-EXPOSE 3000
+# EXPOSE 3000
 
 # Set the command to start the application
 CMD ["node", ".output/server/index.mjs"]

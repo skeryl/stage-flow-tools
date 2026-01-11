@@ -16,7 +16,7 @@ services:
       - NUXT_JWT_SECRET=${NUXT_JWT_SECRET}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.stage-flow-tools.rule=Host(`quiz.your-domain.com`)"
+      - "traefik.http.routers.stage-flow-tools.rule=Host(`quiz.shanes.computer`)"
       - "traefik.http.routers.stage-flow-tools.entrypoints=websecure"
       - "traefik.http.services.stage-flow-tools.loadbalancer.server.port=3000"
       - "traefik.http.routers.stage-flow-tools.tls.certresolver=myresolver"
