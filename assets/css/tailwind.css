@@ -3,15 +3,50 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Surfaces */
+    --bg: #F5F8FC;
+    --surface: #FFFFFF;
+    --surface-2: #EEF3FA;
+
+    /* Text */
+    --text: #0F172A;
+    --text-muted: #475569;
+
+    /* Lines / effects */
+    --border: #CBD5E1;
+    --shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
+
+    /* Brand */
+    --primary: #0077A3;
+    --primary-hover: #00648A;
+    --on-primary: #FFFFFF;
+
+    /* Focus */
+    --focus: #00B6FF;
+
+    /* Data accents */
+    --success: #22C55E;
+    --danger: #FF2D55;
+
+    /* New: global radius */
+    --radius: 4px;
+  }
+
   body {
-    @apply bg-gray-100 text-black min-h-screen relative;
+    @apply min-h-screen relative;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Inter, Roboto, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
   }
 
   ::selection {
-    @apply bg-black text-white;
+    background: var(--focus);
+    color: #001018;
   }
 
-  /* Sharp Design - No Rounded Corners */
+  /* Slight rounded design */
   input,
   button,
   textarea,
@@ -22,34 +57,34 @@
   header,
   footer,
   nav {
-    border-radius: 0;
+    border-radius: var(--radius);
   }
 
-  /* Focus Styles */
   input:focus,
   textarea:focus,
   select:focus,
   button:focus {
-    outline: 3px solid #000;
+    outline: 3px solid var(--focus);
     outline-offset: 2px;
   }
 }
 
-
-/* Scrollbar */
+/* Scrollbar (cool gray track + dark thumb, still matches) */
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 border border-black;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-black border border-gray-100;
+  background: var(--text);
+  border: 2px solid var(--surface-2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #0b1220;
 }
