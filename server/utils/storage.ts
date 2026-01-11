@@ -126,12 +126,7 @@ async function initStorage(event?: H3Event) {
     }
     catch (error: unknown) {
       // Get runtime config if event is provided, otherwise use defaults
-      const config = event
-        ? useRuntimeConfig(event)
-        : {
-            adminUsername: 'admin',
-            adminPassword: '123'
-          }
+      const config = useRuntimeConfig(event);
       const defaultAdmin = {
         username: config.adminUsername,
         password: config.adminPassword
