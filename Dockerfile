@@ -13,8 +13,10 @@ RUN corepack prepare pnpm@10.13.1 --activate
 # Copy package.json and pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
 
+#--mount=type=cache,id=s/${RAILWAY_SERVICE_ID}-/root/cache/pnpm,target=/root/.cache/pnpm
+
 # Install dependencies with caching
-RUN --mount=type=cache,id=s/${RAILWAY_SERVICE_ID}-/root/cache/pnpm,target=/root/.cache/pnpm pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # Copy the rest of the application source code
 COPY . .
